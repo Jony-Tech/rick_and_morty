@@ -9,21 +9,27 @@
   <body>
     <h1 class="text-center font-bold text-3xl p-3">Rick and Morty</h1>
 
-    <div class="flex items-center flex-col">
-      <form>
-        <input
-          id="search"
-          type="text"
-          class="border appearance-none rounded p-1 focus:outline-none focus:border-gray-600 leading-tight"
-          placeholder="search your character"
-        />
-        <button id="btnSearch" class="px-2 py-1 bg-blue-500 text-white rounded">
-          Search
-        </button>
-      </form>
+    <main class="flex justify-between">
+      <div class="bg-slate-800 text-white">sidebar</div>
+      <div class="flex items-center flex-col bg-gray-700 w-full">
+        <form>
+          <input
+            id="search"
+            type="text"
+            class="border appearance-none rounded p-1 focus:outline-none focus:border-gray-600 leading-tight"
+            placeholder="search your character"
+          />
+          <button
+            id="btnSearch"
+            class="px-2 py-1 bg-blue-500 text-white rounded"
+          >
+            Search
+          </button>
+        </form>
 
-      <div id="content" class="grid grid-cols-4 gap-4 text-center m-4"></div>
-    </div>
+        <div id="content" class="grid grid-cols-3 gap-4 text-center m-4"></div>
+      </div>
+    </main>
   </body>
 
   <script type="module" src="js/api.js"></script>
