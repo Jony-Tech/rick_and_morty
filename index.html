@@ -6,35 +6,12 @@
     <link rel="stylesheet" href="src/output.css" />
     <title>Rick and Morty</title>
   </head>
-  <body class="bg-gray-600">
-    <h1 class="text-center text-white font-bold text-3xl p-3">
+  <body class="bg-gray-700">
+    <h1 class="text-center text-white font-bold bg-gray-600 text-3xl p-3">
       Rick and Morty
     </h1>
 
-    <main class="flex justify-between">
-      <div id="sidebar" class="bg-gray-800 text-white hidden">
-        <h3>Filter</h3>
-        <form action="">
-          <div class="">
-            <label for="episodes">Episodes:</label>
-            <select
-              class="text-black"
-              name="episodes"
-              id="episodes"
-              form=""
-            ></select>
-          </div>
-          <div class="">
-            <label for="locations">Locations:</label>
-            <select
-              class="text-black"
-              name="locations"
-              id="locations"
-              form=""
-            ></select>
-          </div>
-        </form>
-      </div>
+    <main>
       <div class="flex items-center flex-col p-4 bg-gray-700 w-full">
         <div class="w-full flex justify-around items-center">
           <button
@@ -117,4 +94,5 @@
   </body>
 
   <script type="module" src="js/api.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </html>
