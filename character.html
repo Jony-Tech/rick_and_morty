@@ -6,14 +6,43 @@
     <title>Rick and Morty</title>
     <link rel="stylesheet" href="src/output.css" />
   </head>
-  <body>
-    <h1 class="text-center font-bold text-3xl p-3">
-      <a href="index.html"> Rick and Morty </a>
+  <body class="bg-gray-800">
+    <h1 class="text-center text-green-500 font-bold bg-gray-700 text-3xl p-3">
+      <a href="index.html">Rick and Morty</a>
     </h1>
 
-    <div class="flex items-center flex-col">
-      <div id="content"></div>
-    </div>
+    <main class="w-full flex justify-center h-full mt-10">
+      <div class="py-8 px-8 rounded-xl shadow-lg inline-block bg-gray-700">
+        <div class="flex gap-6">
+          <img id="img" class="rounded-full" src="" alt="character" />
+          <div class="text-center text-white space-y-2">
+            <div class="space-y-0.5">
+              <p id="name" class="text-3xl text-orange-500 font-bold">
+                Erin Lindford
+              </p>
+
+              <div class="font-medium">
+                <span id="status">Alive </span> -
+                <span id="species">Human</span>
+              </div>
+
+              <p class="text-slate-500 font-medium">Gender:</p>
+              <p id="gender" class="font-medium">Female</p>
+
+              <p class="text-slate-500 font-medium">Last location:</p>
+              <p id="location" class="font-medium">place</p>
+
+              <p class="text-slate-500 font-medium">Origin:</p>
+              <p id="origin" class="font-medium">place</p>
+
+              <p class="text-slate-500 font-medium">Type:</p>
+              <p id="type" class="font-medium">type</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
     <script type="module" src="js/character.js"></script>
   </body>
 </html>

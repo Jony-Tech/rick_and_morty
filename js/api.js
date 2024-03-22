@@ -75,7 +75,7 @@ function showHTML(data){
         const {name, image, id, status} = character;
         status === "Alive" ? color = "green" : status === "Dead" ? color = "red" : null;
         html += `
-            <a class="bg-gray-600 p-2 rounded text-white" href="character.html?id=${id}">
+            <a class="bg-gray-700 p-2 rounded text-white" href="character.html?id=${id}">
                 <p class="font-bold">${name}</p>
                 <p><span class="text-${color}-500">●</span> ${status}</p>
                 <img src="${image}" alt="character">
