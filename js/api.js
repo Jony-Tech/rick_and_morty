@@ -84,10 +84,10 @@ function showHTML(data){
         const {name, image, id, status} = character;
         status === "Alive" ? color = "green" : status === "Dead" ? color = "red" : null;
         html += `
-            <a class="bg-gray-700 p-4 rounded-xl text-white" href="character.html?id=${id}">
+            <a class="bg-gray-700 flex flex-col  p-4 rounded-xl text-white" href="character.html?id=${id}">
                 <p class="font-bold text-xl hover:text-orange-500">${name}</p>
                 <p><span class="text-${color}-500">●</span> ${status}</p>
-                <img class="rounded-xl" src="${image}" alt="character">
+                <img class="rounded-xl max-h-60" src="${image}" alt="character">
             </a>
         `
     });
@@ -119,33 +119,35 @@ async function searchCharacter(e){
 //Filter
 async function filterBtn(){
      Swal.fire({
-        title: "Filter by",
+        title: "FILTER BY",
+        background: "#374151",
+        color: "#fff",
         html: `
-            <form action="">
+            <form action="" class="pb-5">
             <div class="">
-                <label for="episodes" class="text-gray-500 font-bold">Episodes:</label>
+                <label for="episodes" class="text-gray-300 pb-2 block font-bold">Episodes:</label>
                 <select
-                class="text-black"
+                class="text-white bg-gray-500 py-1 px-4 rounded"
                 name="episodes"
                 id="episodes"
                 form=""
                 ></select>
             </div>
-            <p class="font-bold p-4">or</p>
+            <p class="font-bold p-4">OR</p>
             <div class="">
-                <label class="text-gray-500 font-bold" for="locations">Locations:</label>
+                <label class="text-gray-300 pb-2 font-bold block" for="locations">Locations:</label>
                 <select
-                class="text-black"
+                class="text-white rounded py-1 text-center bg-gray-500"
                 name="locations"
                 id="locations"
                 form=""
                 ></select>
             </div>
-            <p class="font-bold p-4">and</p>
-            <div class="">
-                <label class="text-gray-500 font-bold" for="status">Status:</label>
+            <p class="font-bold p-4">AND</p>
+            <div class="pb-4">
+                <label class="text-gray-300 font-bold" for="status">Status:</label>
                 <select
-                class="text-black"
+                class="text-white text-center bg-gray-500 py-1 px-4 rounded"
                 name="status"
                 id="status"
                 form=""
@@ -156,9 +158,9 @@ async function filterBtn(){
                 </select>
             </div>
             <div class="">
-                <label class="text-gray-500 font-bold" for="gender">Gender:</label>
+                <label class="text-gray-300 font-bold" for="gender">Gender:</label>
                 <select
-                class="text-black"
+                class="text-white text-center bg-gray-500 py-1 px-4 rounded"
                 name="gender"
                 id="gender"
                 form=""

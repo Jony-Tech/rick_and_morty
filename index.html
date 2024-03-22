@@ -46,7 +46,7 @@
             />
             <button
               id="btnSearch"
-              class="px-2 py-1 bg-blue-500 text-white rounded"
+              class="px-2 py-1 bg-blue-600 font-bold hover:bg-blue-800 text-white rounded duration-150"
             >
               Search
             </button>
@@ -61,7 +61,10 @@
           class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-4 text-center m-4"
         ></div>
         <div id="pages" class="flex gap-4">
-          <button id="previousPage" class="text-white flex hidden">
+          <button
+            id="previousPage"
+            class="flex px-2 py-1 bg-gray-200 font-bold hover:bg-blue-800 hover:text-white text-blue-600 rounded duration-150 hidden"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -79,7 +82,10 @@
 
             Previous page
           </button>
-          <button id="nextPage" class="flex text-white">
+          <button
+            id="nextPage"
+            class="flex px-2 py-1 bg-blue-600 font-bold hover:bg-blue-800 text-white rounded duration-150"
+          >
             Next page
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +93,7 @@
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="w-6 h-6"
+              class="w-6 h-6 flex items-center"
             >
               <path
                 stroke-linecap="round"
