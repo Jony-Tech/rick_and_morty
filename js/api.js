@@ -79,14 +79,21 @@ async function showPage(e){
 function showHTML(data){
     const content = document.querySelector('#content');
     let html = '';
-    let color = "gray";
+    let color;
     data.forEach(character => {
         const {name, image, id, status} = character;
-        status === "Alive" ? color = "green" : status === "Dead" ? color = "red" : null;
+        // status === "Alive" ? color = "green" : status === "Dead" ? color = "read" : color= "gray";
+        if(status === "Alive"){
+            color = "green"
+        }else if(status == "Dead"){
+            color = "red"
+        }else{
+            color = "gray"
+        }
         html += `
             <a class="bg-gray-700 flex flex-col  p-4 rounded-xl text-white" href="character.html?id=${id}">
                 <p class="font-bold text-xl hover:text-orange-500">${name}</p>
-                <p><span class="text-${color}-500">●</span> ${status}</p>
+                <p><span class="text-${color}-600">●</span> ${status}</p>
                 <img class="rounded-xl max-h-60" src="${image}" alt="character">
             </a>
         `
