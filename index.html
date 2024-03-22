@@ -13,10 +13,12 @@
 
     <main>
       <div class="flex items-center flex-col p-4 bg-gray-800 w-full">
-        <div class="w-full flex justify-around items-center">
+        <div
+          class="w-full sm:flex sm:justify-around flex flex-col items-center sm:flex-row sm:items-center"
+        >
           <button
             id="filter"
-            class="text-white focus:outline-none flex items-center gap-2"
+            class="text-white focus:outline-none flex items-center gap-2 pb-3 sm:pb-0"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -50,8 +52,14 @@
             </button>
           </form>
         </div>
-
-        <div id="content" class="grid grid-cols-3 gap-4 text-center m-4"></div>
+        <div class="flex gap-3 pt-2">
+          <p id="filterName" class="text-white text-xl font-bold"></p>
+          <p id="filterBy" class="text-orange-400 text-xl font-bold"></p>
+        </div>
+        <div
+          id="content"
+          class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-4 text-center m-4"
+        ></div>
         <div id="pages" class="flex gap-4">
           <button id="previousPage" class="text-white flex hidden">
             <svg

@@ -1,22 +1,32 @@
+//url API
+const url = 'https://rickandmortyapi.com/api';
+
+//Selectors
 const btnSearch = document.querySelector('#btnSearch');
 const btnFilter = document.querySelector('#filter');
+const btnNextPage = document.querySelector('#nextPage');
+const btnPreviousPage = document.querySelector('#previousPage');
+const divPages = document.querySelector('#pages');
+const filterBy = document.querySelector('#filterBy');
+const filterName = document.querySelector('#filterName');
 let selectEpisodes;
 let selectLocations;
 let selectStatus;
 let selectGender;
-const btnNextPage = document.querySelector('#nextPage');
-const btnPreviousPage = document.querySelector('#previousPage');
-const divPages = document.querySelector('#pages');
 let objectCharacter;
+let pages;
+
+//listeners
+document.addEventListener('DOMContentLoaded', getData);
 btnNextPage.addEventListener('click', showPage)
 btnPreviousPage.addEventListener('click', showPage)
 btnFilter.addEventListener('click', filterBtn);
 btnSearch.addEventListener('click', searchCharacter);
 
-document.addEventListener('DOMContentLoaded', getData);
 
-const url = 'https://rickandmortyapi.com/api'
-let pages;
+
+
+
 async function getData(){
     try{
         const response = await fetch(`${url}/character/`);
@@ -25,7 +35,6 @@ async function getData(){
         objectCharacter = result
         console.log(objectCharacter);
         showHTML(result.results);
-        console.log(pages);
     } catch (error){
         console.log(error);
     }
@@ -75,27 +84,26 @@ function showHTML(data){
         const {name, image, id, status} = character;
         status === "Alive" ? color = "green" : status === "Dead" ? color = "red" : null;
         html += `
-            <a class="bg-gray-700 p-2 rounded text-white" href="character.html?id=${id}">
-                <p class="font-bold">${name}</p>
+            <a class="bg-gray-700 p-4 rounded-xl text-white" href="character.html?id=${id}">
+                <p class="font-bold text-xl hover:text-orange-500">${name}</p>
                 <p><span class="text-${color}-500">●</span> ${status}</p>
-                <img src="${image}" alt="character">
+                <img class="rounded-xl" src="${image}" alt="character">
             </a>
         `
     });
-
-    content.innerHTML = html
+    content.innerHTML = html;
 }
 
 async function searchCharacter(e){
     e.preventDefault()
-    const character = document.querySelector('#search').value;
+    const character = document.querySelector('#search');
 
     try{
-        const response = await fetch(`${url}/character/?name=${character}`);
+        const response = await fetch(`${url}/character/?name=${character.value}`);
         const result = await response.json();
-        console.log(result);
         objectCharacter = result.results;
-        console.log(objectCharacter);
+        filterName.textContent = "Results with:"
+        filterBy.textContent = character.value;
         hidePagesBtn()
         showHTML(result.results);
     } catch (error){
@@ -105,6 +113,8 @@ async function searchCharacter(e){
             text: "This character doesn't exist!",
         });
     }
+
+    character.value = ''
 }
 //Filter
 async function filterBtn(){
@@ -207,6 +217,8 @@ async function episodeSelected(){
         const result = await response.json();
         getCharacter(result.characters);
         hidePagesBtn(true)
+        filterName.textContent = "Episode:"
+        filterBy.textContent = result.name
     } catch (error) {
         console.log(error);
     }
@@ -247,8 +259,9 @@ async function locationSelected(){
         const response = await fetch(`${url}/location/${Number(this.value)}`);
         const result = await response.json();
         getCharacter(result.residents);
-        hidePagesBtn(true)
-        console.log(result);
+        hidePagesBtn(true);
+        filterName.textContent = "Location:"
+        filterBy.textContent = result.name
     } catch (error) {
         console.log(error);
     }
